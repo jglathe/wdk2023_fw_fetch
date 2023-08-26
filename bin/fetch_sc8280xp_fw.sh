@@ -3,7 +3,8 @@
 # The target firmware path
 source_path="/mnt/Windows/System32/DriverStore/FileRepository"
 target_fw_path="/lib/firmware/qcom/sc8280xp/MICROSOFT/DEVKIT23/"
-do_reboot=1
+# Flag to do a reboot (via systemd) and disable its own service, needed only once
+do_disable_reboot=1
 
 # Step 1: Find the NTFS partition(s) on /dev/nvme0n1
 partitions=$(lsblk -f -o NAME,FSTYPE | grep -w "ntfs" | grep "nvme0n1" | while read -r name fstype; do echo "/dev/"$(echo ${name} | sed 's/^.*─//;q'); done)
@@ -69,6 +70,8 @@ umount /mnt/
 echo "Contents of $target_fw_path:"
 ls -l "$target_fw_path"
 
-# disable the fetchersudo c
-/usr/bin/systemctl disable copy_firmware.service
+# disable the fetcher in systemd
+if [ $do_disable_reboot -eq 1 ] then
+    /usr/bin/systemctl disable copy_firmware.service
+fi
 
