@@ -1,0 +1,13 @@
+[Unit]
+Description=Copy wdk2023 files (signed hw-specific) to target path
+After=local-fs.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/fetch_sc8280xp_fw.sh
+ExecStartPost=/usr/bin/systemctl reboot
+
+[Install]
+WantedBy=default.target
+
