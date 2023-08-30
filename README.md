@@ -8,7 +8,7 @@ The intended use is in a bootable Ubuntu 23.04 desktop image that can be found [
 
 ## Prerequisites
 
-To boot from USB with the Windows Dev Kit 2023, you need to enter the UEFI setup from Windows (no, there is no other way), disable secure boot, and add USB as boot source. To actually fetch the files from the ntfs partition from USB boot, you also need to decrypt it by disabling bitlocker. If you don't want to do this, I would suggest to copy the files directly in Windows, and add them after booting the Linux stick. It will come up without them, but certain subsystems of the SC8280XP SoC will not work. 
+To boot from USB with the Windows Dev Kit 2023, you need to enter the UEFI settings by pressing two pill shaped buttons (Power + UEFI) at the same time while the WDK is turned off and connected to barrel power connector, disable secure boot, and add USB as boot source. To actually fetch the files from the ntfs partition from USB boot, you also need to decrypt it by disabling bitlocker. If you don't want to do this, I would suggest to copy the files directly in Windows, and add them after booting the Linux stick. It will come up without them, but certain subsystems of the SC8280XP SoC will not work. 
 
 ## Acknowledgements
 
