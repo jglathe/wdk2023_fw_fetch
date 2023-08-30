@@ -4,7 +4,7 @@ This script is used to find and copy firmware files for the Windows Dev Kit 2023
 
 ## Usage
 
-The intended use is in a bootable Ubuntu 23.04 desktop image that can be found [here](https://drive.google.com/drive/folders/1sc_CpqOMTJNljfvRyLG-xdwB0yduje_O?usp=sharing) It boots from USB, searches the local nvme ssd, copies the files and reboots. After reboot the Ubuntu Ubiquity installer comes up and you can proceed with the setup.
+The intended use is in a bootable Ubuntu 23.04 desktop image that can be found [here](https://drive.google.com/drive/folders/1sc_CpqOMTJNljfvRyLG-xdwB0yduje_O?usp=sharing). It boots from USB, searches the local nvme ssd, copies the files and reboots. After reboot the Ubuntu Ubiquity installer comes up and you can proceed with the setup.
 
 ## Prerequisites
 
