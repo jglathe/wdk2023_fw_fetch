@@ -71,7 +71,7 @@ echo "Contents of $target_fw_path:"
 ls -l "$target_fw_path"
 
 # disable the fetcher in systemd
-if [ $do_disable_reboot -eq 1 ] then
+if [ $do_disable_reboot -eq 1 ]; then
     /usr/bin/systemctl disable copy_firmware.service
 fi
 
