@@ -70,6 +70,10 @@ umount /mnt/
 echo "Contents of $target_fw_path:"
 ls -l "$target_fw_path"
 
+# update initramfs
+echo "Updating initramfs"
+/usr/sbin/update-initramfs -u -k all
+
 # disable the fetcher in systemd
 if [ $do_disable_reboot -eq 1 ]; then
     /usr/bin/systemctl disable copy_firmware.service
