@@ -2,7 +2,7 @@
 
 # The target firmware path
 source_path="/mnt/Windows/System32/DriverStore/FileRepository"
-target_fw_path="/lib/firmware/qcom/sc8280xp/MICROSOFT/DEVKIT23/"
+target_fw_path="/usr/lib/firmware/updates/qcom/sc8280xp/MICROSOFT/DEVKIT23/"
 # Flag to do a reboot (via systemd) and disable its own service, needed only once
 do_disable_reboot=1
 
@@ -55,6 +55,7 @@ for path in "${unique_mbn_paths[@]}"; do
 done
 
 # Step 4: Copy the newest *8280.mbn file including *.jsn files to the target library path
+mkdir -p "$target_fw_path"
 for dir in "${unique_dirs[@]}"; do
     cp "$dir"/*.mbn "$target_fw_path"
     # Check if *.jsn files exist in the directory before copying them
