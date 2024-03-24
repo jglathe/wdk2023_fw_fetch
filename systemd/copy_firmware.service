@@ -6,7 +6,7 @@ DefaultDependencies=no
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/fetch_sc8280xp_fw.sh
-ExecStartPost=/usr/bin/systemctl reboot
+#ExecStartPost=/usr/bin/systemctl reboot
 
 [Install]
 WantedBy=default.target
