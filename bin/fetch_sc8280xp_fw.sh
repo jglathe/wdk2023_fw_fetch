@@ -4,7 +4,7 @@
 source_path="/mnt/Windows/System32/DriverStore/FileRepository"
 target_fw_path="/lib/firmware/updates/qcom/sc8280xp/LENOVO/21BX/"
 # Flag to do a reboot (via systemd) and disable its own service, needed only once
-do_disable_reboot=0
+do_disable_reboot=1
 
 # Step 1: Find the NTFS partition(s) on /dev/nvme0n1
 partitions=$(lsblk -f -o NAME,FSTYPE | grep -w "ntfs" | grep "nvme0n1" | while read -r name fstype; do echo "/dev/"$(echo ${name} | sed 's/^.*─//;q'); done)
@@ -70,6 +70,9 @@ umount /mnt/
 # List the contents of $target_fw_path
 echo "Contents of $target_fw_path:"
 ls -l "$target_fw_path"
+
+#disable adsp for the odd fuckery it does when not loaded from initramfs
+mv "$target_fw_path"qcadsp8280.mbn "$target_fw_path"qcadsp8280.mbn.disabled
 
 # update initramfs
 echo "Updating initramfs"
