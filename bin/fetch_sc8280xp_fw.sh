@@ -71,6 +71,9 @@ umount /mnt/
 echo "Contents of $target_fw_path:"
 ls -l "$target_fw_path"
 
+#disable adsp for the odd fuckery it does when not loaded from initramfs
+mv "$target_fw_path"qcadsp8280.mbn "$target_fw_path"qcadsp8280.mbn.disabled
+
 # update initramfs
 echo "Updating initramfs"
 /usr/sbin/update-initramfs -u -k all
