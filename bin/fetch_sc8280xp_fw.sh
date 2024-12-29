@@ -2,7 +2,7 @@
 
 # The target firmware path
 source_path="/mnt/Windows/System32/DriverStore/FileRepository"
-target_fw_path="/usr/lib/firmware/updates/qcom/sc8280xp/MICROSOFT/DEVKIT23/"
+target_fw_path="/usr/lib/firmware/updates/qcom/sc8280xp/microsoft/blackrock/"
 # Flag to do a reboot (via systemd) and disable its own service, needed only once
 do_disable_reboot=1
 
