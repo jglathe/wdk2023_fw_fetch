@@ -7,7 +7,7 @@ target_fw_path="/usr/lib/firmware/updates/qcom/x1p42100/"
 do_disable_reboot=0
 
 # Step 1: Find the NTFS partition(s) on /dev/nvme0n1
-partitions=$(lsblk -f -o NAME,FSTYPE | grep -w "ntfs" | grep "nvme0n1" | while read -r name fstype; do echo "/dev/"$(echo ${name} | sed 's/^.*─//;q'); done)
+partitions=$(lsblk -f -o NAME,FSTYPE | grep -w "ntfs" | grep "sd" | while read -r name fstype; do echo "/dev/"$(echo ${name} | sed 's/^.*─//;q'); done)
 
 # Step 2: Mount each NTFS partition and verify if it is a Windows installation
 for partition in $partitions
